@@ -310,10 +310,7 @@ fn build_winner_mesh(ctx: &mut Context, winner: &Winner) -> GameResult<graphics:
     mb.build(ctx)
 }
 
-fn build_game_mesh(
-    ctx: &mut Context,
-    board: &Board
-) -> GameResult<graphics::Mesh> {
+fn build_game_mesh(ctx: &mut Context, board: &Board) -> GameResult<graphics::Mesh> {
     let mb = &mut graphics::MeshBuilder::new();
 
     add_background_to_mesh(mb);
