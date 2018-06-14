@@ -8,7 +8,7 @@ use ggez::event::MouseButton;
 use ggez::graphics;
 use ggez::graphics::{DrawMode, Font, Point2, Text};
 use ggez::timer;
-use ggez::{Context, GameResult};
+use ggez::{Context, ContextBuilder, GameResult};
 use std::env;
 use std::path;
 
@@ -390,8 +390,14 @@ impl event::EventHandler for MainState {
 }
 
 pub fn main() {
-    let c = conf::Conf::new();
-    let ctx = &mut Context::load_from_conf("Tic Tac Toe", "ggez", c).unwrap();
+    let cb = ContextBuilder::new("Tic Tac Toe", "ggez")
+        .window_setup(conf::WindowSetup::default().title("Tic Tac Toe!"))
+        .window_mode(conf::WindowMode::default().dimensions(
+            pixel_math::SCREEN_SIZE.0 as u32,
+            pixel_math::SCREEN_SIZE.1 as u32,
+        ));
+
+    let ctx = &mut cb.build().unwrap();
 
     // We add the CARGO_MANIFEST_DIR/resources do the filesystems paths so
     // we we look in the cargo project for files.
