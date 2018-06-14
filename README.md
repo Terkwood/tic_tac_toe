@@ -19,4 +19,4 @@ We still need to add logic to detect when the game
 results in a draw.  But for now, you can experience
 the full glory of winning!
 
-![X has donned a laurel wreath](/doc/winner.jpg)
+![X has donned a laurel wreath](doc/winner.jpg)
